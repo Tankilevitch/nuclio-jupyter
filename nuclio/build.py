@@ -37,10 +37,9 @@ def build_file(filename='', name='', handler='', archive=False, project='',
     dont_embed = (len(files) > 0) or output_dir != '' or archive
 
     if not filename:
-        kernel = get_ipython()
-        if kernel:
-            filename = notebook_file_name(kernel)
-        else:
+        import ipynbname
+        filename = ipynbname.path()
+        if not filename:
             raise ValueError('please specify file name/path/url')
 
     filebase, ext = os.path.splitext(os.path.basename(filename))
