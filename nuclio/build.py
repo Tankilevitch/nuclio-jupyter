@@ -38,7 +38,7 @@ def build_file(filename='', name='', handler='', archive=False, project='',
 
     if not filename:
         import ipynbname
-        filename = ipynbname.path()
+        filename = str(ipynbname.path())
         if not filename:
             raise ValueError('please specify file name/path/url')
 
